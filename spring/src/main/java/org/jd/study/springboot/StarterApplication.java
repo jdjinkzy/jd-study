@@ -17,7 +17,9 @@ public class StarterApplication extends SpringBootServletInitializer {
         SpringApplication.run(StarterApplication.class, args);
         LOG.info("DazhaxieStarterApplication 启动成功");
         
+        DispatcherServlet dispatcherServlet = null;
         
+        org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext a = null;
     }
     
     public static void main2(String[] args) {
