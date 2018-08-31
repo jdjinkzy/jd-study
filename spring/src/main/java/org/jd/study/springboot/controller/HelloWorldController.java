@@ -7,8 +7,9 @@ import org.springframework.web.servlet.mvc.Controller;
 @RestController
 public class HelloWorldController {
     @RequestMapping("/hello")
-    public String index() {
-    	System.out.println((this instanceof Controller));
+    public String index() throws InterruptedException {
+    	//System.out.println((this instanceof Controller));
+    	Thread.sleep(30);
         return "Hello World";
     }
 }
