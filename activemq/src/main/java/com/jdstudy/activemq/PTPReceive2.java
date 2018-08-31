@@ -11,7 +11,7 @@ import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class PTPReceive {
+public class PTPReceive2 {
     //连接账号
     private String userName = "";
     //连接密码
@@ -29,7 +29,7 @@ public class PTPReceive {
     //消费者，就是接收数据的对象
     private MessageConsumer consumer;
     public static void main(String[] args) {
-        PTPReceive receive = new PTPReceive();
+        PTPReceive2 receive = new PTPReceive2();
         receive.start();
     }
     
@@ -39,7 +39,7 @@ public class PTPReceive {
             factory = new ActiveMQConnectionFactory(userName, password, brokerURL);
             //从工厂中获取一个连接
             connection = factory.createConnection();
-            connection.setClientID("ID:ZB-PF0XGXFK-54558-1533558345716-1:1");
+            connection.setClientID("ID:ZB-PF0XGXFK-54558-1533558345716-2:1");
             //测试过这个步骤不写也是可以的，但是网上的各个文档都写了
             connection.start();
             //创建一个session
@@ -63,7 +63,7 @@ public class PTPReceive {
                     try {
                         //获取到接收的数据
                         String text = ((TextMessage)message).getText();
-                        System.out.println("recerve1:"+text);
+                        System.out.println("recerve2:"+text);
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }

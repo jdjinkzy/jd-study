@@ -57,18 +57,27 @@ public class TOPReceive {
             Topic topic = session.createTopic("topic-text");
             TopicSubscriber consumer = session.createDurableSubscriber(topic, "t1");
             connection.start();
-            
-           Message message = consumer.receive();
-            while (message != null) {
+            int i = 0;
+           while (true) {
+        	   Message message = consumer.receive();
+        	   TextMessage txtMsg = (TextMessage) message;
+        	   System.out.println("收到消 息"+(i++)+"：" + txtMsg.getText());
+               //没这句有错
+               message = consumer.receive(1000L);
+           }
+           
+           /* while (message != null) {
                 TextMessage txtMsg = (TextMessage) message;
                 System.out.println("收到消 息：" + txtMsg.getText());
                 //没这句有错
                 message = consumer.receive(1000L);
             }
-            session.commit();
+            if(session.getTransacted()) {
+            	session.commit();
+            }
             session.close();
             connection.close();
-            
+            */
             //实现一个消息的监听器
             //实现这个监听器后，以后只要有消息，就会通过这个监听器接收到
             /*consumer.setMessageListener(new MessageListener() {
