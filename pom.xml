@@ -10,5 +10,6 @@
   	<module>algorithm</module>
   	<module>spring</module>
     <module>springmvc</module>
+    <module>activemq</module>
   </modules>
 </project>
